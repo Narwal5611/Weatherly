@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weatherly</title>
+    <meta name="description" content="Responsive Weather App in vanilla HTML, CSS, and JS" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⛅</text></svg>">
+</head>
+
+<body>
+    <header class="app-header">
+        <nav class="navbar">
+            <!-- Left Side -->
+            <div class="branding">
+                <span class="logo">⛅</span>
+                <h1>Weatherly</h1>
+            </div>
+
+            <!-- Right Side -->
+            <div class="navbar-right">
+                <form id="search-form" class="search-form" autocomplete="off">
+                    <input id="city-input" class="input" type="text" placeholder="Search city (e.g., Delhi)"
+                        aria-label="City name" />
+                    <button class="btn" id="search-btn" type="submit" title="Search">Search</button>
+                    <button class="btn outline" id="geo-btn" type="button" title="Use my location">Use Location</button>
+                </form>
+
+                <div class="toggles">
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Dark/Light mode"
+                        aria-pressed="false">🌓</button>
+                    <button id="refresh-btn" class="icon-btn" title="Refresh">↻</button>
+                    <button id="mic-btn" class="icon-btn" title="Voice search (beta)">🎤</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container">
+        <section id="now" class="card now">
+            <div class="now-left">
+                <div class="city-line">
+                    <h2 id="city-name">—</h2>
+                    <span id="local-time" class="muted">—</span>
+                </div>
+
+                <div class="temp-line">
+                    <div class="temp-wrap">
+                        <span id="temp" class="temp">—°C</span>
+                        <span id="desc" class="desc">—</span>
+                    </div>
+                    <img id="icon" alt="Weather icon" class="icon" />
+                </div>
+
+                <p id="tip" class="tip">—</p>
+            </div>
+
+            <div class="now-right facts">
+                <div class="fact"><span>Humidity</span><strong id="humidity">—%</strong></div>
+                <div class="fact"><span>Wind</span><strong id="wind">— m/s</strong></div>
+                <div class="fact"><span>Sunrise</span><strong id="sunrise">—</strong></div>
+                <div class="fact"><span>Sunset</span><strong id="sunset">—</strong></div>
+            </div>
+        </section>
+
+        <section id="trend" class="card">
+            <h3>Next 5 Days</h3>
+            <div id="forecast" class="forecast-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="footer muted">
+        <span>Built with OpenWeatherMap <a href="#" id="about-link">About</a></span>
+    </footer>
+
+    <dialog id="about-dialog">
+        <h2>About this App</h2>
+        <p>
+            This is a responsive weather application built with vanilla HTML, CSS, and JavaScript.
+            It supports city search, geolocation, dark/light mode, cached offline view (last result),
+            and dynamic backgrounds based on current weather.
+        </p>
+
+        <p>
+            Developed with ❤️ by <strong>Vishal Kumar</strong>.
+            I’m passionate about building clean, user-friendly, and feature-rich web applications
+            that make everyday tasks simpler and more enjoyable.
+        </p>
+
+        <h3>Developer Info</h3>
+        <ul>
+            <li><strong>Name:</strong> Vishal Kumar</li>
+            <li><strong>Register No:</strong> RA2432241030050</li>
+            <li><strong>Studied at:</strong> SRM Institute Of Science And Technology, Delhi-NCR, Ghaziabad</li>
+            <li><strong>Email:</strong> <a href="mailto:vk0144@srmist.edu.in">vk0144@srmist.edu.in</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishal-kumar-63467a227" target="_blank">
+                    linkedin.com/in/vishal-kumar-63467a227</a></li>
+        </ul>
+
+        <p><strong>Tip:</strong> Try the 🎤 button for voice search if your browser supports it.</p>
+
+        <form method="dialog">
+            <button class="btn">Close</button>
+        </form>
+    </dialog>
+
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
